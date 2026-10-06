@@ -1,0 +1,31 @@
+{
+  "_notes": [
+    "Model registry used for the paper's runs. API keys are read from the environment variable named in 'api_key_env'; no keys are stored here.",
+    "All models were requested at temperature 0. 'extra_params' are passed through unchanged to OpenAI-compatible endpoints.",
+    "deepseek-chat and mistral-medium-latest are provider aliases that may point to newer models today; check the provider's model list before rerunning.",
+    "mock-gold and mock-none need no key and check the pipeline offline (mock-gold scores 1.0 everywhere)."
+  ],
+  "models": [
+    {"name": "claude-opus-4.8", "display": "Claude Opus 4.8", "backend": "anthropic", "model": "claude-opus-4-8",
+     "api_base": "https://api.anthropic.com", "api_key_env": "ANTHROPIC_API_KEY"},
+    {"name": "gpt-5.6", "display": "GPT-5.6", "backend": "openai", "model": "gpt-5.6",
+     "api_base": "https://api.openai.com/v1", "api_key_env": "OPENAI_API_KEY",
+     "extra_params": {"reasoning_effort": "none"}},
+    {"name": "grok-4.5", "display": "Grok 4.5", "backend": "openai", "model": "grok-4.5",
+     "api_base": "https://api.x.ai/v1", "api_key_env": "XAI_API_KEY",
+     "extra_params": {"reasoning_effort": "low"}},
+    {"name": "deepseek-v4", "display": "DeepSeek-V4", "backend": "openai", "model": "deepseek-chat",
+     "api_base": "https://api.deepseek.com/v1", "api_key_env": "DEEPSEEK_API_KEY",
+     "extra_params": {"thinking": {"type": "disabled"}}},
+    {"name": "kimi-k3", "display": "Kimi K3", "backend": "openai", "model": "kimi-k3",
+     "api_base": "https://api.moonshot.ai/v1", "api_key_env": "MOONSHOT_API_KEY",
+     "extra_params": {"reasoning_effort": "low"}},
+    {"name": "mistral-medium-3.5", "display": "Mistral Medium 3.5", "backend": "openai", "model": "mistral-medium-latest",
+     "api_base": "https://api.mistral.ai/v1", "api_key_env": "MISTRAL_API_KEY",
+     "extra_params": {"reasoning_effort": "none"}},
+    {"name": "mock-gold", "display": "Mock (returns gold)", "backend": "mock-gold", "model": "mock",
+     "api_base": "", "api_key_env": ""},
+    {"name": "mock-none", "display": "Mock (predicts NONE)", "backend": "mock-none", "model": "mock",
+     "api_base": "", "api_key_env": ""}
+  ]
+}
